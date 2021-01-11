@@ -1,4 +1,4 @@
-package com.chatbot.chatBot;
+package com.chatbot.chatbot;
 
 import java.io.File;
 
@@ -15,11 +15,14 @@ public class Chatbot {
 
 	public static void main(String[] args) {
 		try {
-
+			// You can also specify a root path for the bot's files with
 			String resourcesPath = getResourcesPath();
 			System.out.println(resourcesPath);
 			MagicBooleans.trace_mode = TRACE_MODE;
+			
+			// Create a bot
 			Bot bot = new Bot("super", resourcesPath);
+			// Create a client chat session
 			Chat chatSession = new Chat(bot);
 			bot.brain.nodeStats();
 			String textLine = "";
@@ -38,7 +41,10 @@ public class Chatbot {
 					String request = textLine;
 					if (MagicBooleans.trace_mode)
 						System.out.println("STATE=" + request + ":THAT=" + ((History) chatSession.thatHistory.get(0)).get(0) + ":TOPIC=" + chatSession.predicates.get("topic"));
+					
+					// Use the method multisentenceResponse to get the bot's replies to multiple-sentence (one or more sentence) inputs:
 					String response = chatSession.multisentenceRespond(request);
+					
 					while (response.contains("&lt;"))
 						response = response.replace("&lt;", "<");
 					while (response.contains("&gt;"))
