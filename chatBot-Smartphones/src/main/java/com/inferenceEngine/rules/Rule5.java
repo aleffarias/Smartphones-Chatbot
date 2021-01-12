@@ -7,25 +7,28 @@ import org.jeasy.rules.annotation.Rule;
 import org.jeasy.rules.api.Facts;
 
 @Rule
-public class Rule1 {
+public class Rule5 {
 	
 	@Condition
 	public boolean when(Facts facts) {
 		try {
+			String technology = facts.get("technology");
+			boolean frontalCamera = facts.get("frontalCamera");
+			boolean flah3g = facts.get("flah3g");
 			boolean smartphone = facts.get("smartphone");
-			boolean mp3 = facts.get("mp3");
-			boolean colorScreen = facts.get("colorScreen");
+			boolean keybord = facts.get("keybord");
 			
-			return (smartphone && mp3 && colorScreen) == false;
+			return technology == "Menor" &&
+					(frontalCamera && flah3g && keybord) == false &&
+							smartphone == true;
 		} catch (Exception e) {
 			return false;
 		}
-
 	}
 	
 	@Action
 	public void then() {
-		System.out.println("O Smartphone recomendado é:\nMotorola C115");
+		System.out.println("O Smartphone recomendado é:\nNokia N8");
 		System.exit(0);
 	}
 	
@@ -33,4 +36,5 @@ public class Rule1 {
 	public int getPriority() {
 		return 1;
 	}
+
 }

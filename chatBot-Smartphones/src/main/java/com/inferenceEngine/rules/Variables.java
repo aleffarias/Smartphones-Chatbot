@@ -6,17 +6,17 @@ public class Variables {
 	private boolean android;
 	private boolean battery;
 	private boolean frontalCamera;
-	private boolean colorScreen;
+	private boolean colorScreen = false;
 	private boolean flash3g;
 	private boolean flash4g;
 	private boolean gyroscope;
 	private boolean fingerprintScanner;
 	private boolean storage;
-	private boolean mp3;
+	private boolean mp3 = false;
 	private boolean dualSim;
 	private boolean processor ;
 	private boolean screenQuality;
-	private boolean smartphone;
+	private boolean smartphone = false;
 	private boolean keybord;
 	private boolean technology;
 	private boolean hdScreen;
@@ -24,14 +24,14 @@ public class Variables {
 	
 	
 	// Singleton design pattern 
-	private static Variables uniqueInstance;
-	
-	public static synchronized Variables getInstance() {
-		if (uniqueInstance == null)
-			uniqueInstance = new Variables();
-		
-		return uniqueInstance;
-	}
+//	private static Variables uniqueInstance;
+//	
+//	public static synchronized Variables getInstance() {
+//		if (uniqueInstance == null)
+//			uniqueInstance = new Variables();
+//		
+//		return uniqueInstance;
+//	}
 
 	
 	// ======================================= Get/Set =================================================
