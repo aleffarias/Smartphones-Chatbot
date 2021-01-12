@@ -15,22 +15,18 @@ public class Rule4 {
 			boolean smartphone = facts.get("smartphone");
 			boolean mp3 = facts.get("mp3");
 			boolean dualSim = facts.get("dualSim");
-			
-			return (mp3 && dualSim) == true && smartphone == false;
+		
+			return (mp3 == true 
+					&& dualSim == true 
+						&& smartphone == false);
 		} catch (Exception e) {
 			return false;
 		}
 	}
 	
 	@Action
-	public void then() {
+	public void then(Facts facts) {
 		System.out.println("O Smartphone recomendado é:\nMultilaser P3298");
 		System.exit(0);
 	}
-	
-	@Priority
-	public int getPriority() {
-		return 1;
-	}
-
 }

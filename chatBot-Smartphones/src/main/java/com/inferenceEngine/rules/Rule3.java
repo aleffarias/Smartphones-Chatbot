@@ -16,7 +16,9 @@ public class Rule3 {
 			boolean mp3 = facts.get("mp3");
 			boolean dualSim = facts.get("dualSim");
 			
-			return (smartphone && dualSim) == false && mp3 == true;
+			return (smartphone == false 
+						&& dualSim == false 
+							&& mp3 == true);
 		} catch (Exception e) {
 			return false;
 		}
@@ -27,10 +29,4 @@ public class Rule3 {
 		System.out.println("O Smartphone recomendado é:\nSiemens GS55-6");
 		System.exit(0);
 	}
-	
-	@Priority
-	public int getPriority() {
-		return 1;
-	}
-
 }

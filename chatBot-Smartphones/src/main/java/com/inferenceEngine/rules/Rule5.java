@@ -18,9 +18,11 @@ public class Rule5 {
 			boolean smartphone = facts.get("smartphone");
 			boolean keybord = facts.get("keybord");
 			
-			return technology == "Menor" &&
-					(frontalCamera && flah3g && keybord) == false &&
-							smartphone == true;
+			return (technology == "Menor" 
+					&& frontalCamera == false 
+						&& flah3g == false 
+							&& keybord == false 
+								&& smartphone == true);
 		} catch (Exception e) {
 			return false;
 		}
@@ -31,10 +33,4 @@ public class Rule5 {
 		System.out.println("O Smartphone recomendado é:\nNokia N8");
 		System.exit(0);
 	}
-	
-	@Priority
-	public int getPriority() {
-		return 1;
-	}
-
 }

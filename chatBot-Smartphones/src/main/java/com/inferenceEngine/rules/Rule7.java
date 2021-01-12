@@ -18,9 +18,12 @@ public class Rule7 {
 			boolean smartphone = facts.get("smartphone");
 			boolean gyroscope = facts.get("gyroscope");
 			
-			return technology == "Menor" &&
-					(frontalCamera && gyroscope) == false &&
-							(smartphone && flah3g) == true;
+			return (technology == "Menor" 
+					&& frontalCamera == false 
+						&& gyroscope == false 
+							&& smartphone == true 
+								&& flah3g == true);
+			
 		} catch (Exception e) {
 			return false;
 		}
@@ -31,10 +34,4 @@ public class Rule7 {
 		System.out.println("O Smartphone recomendado é:\nXioami Mi Mix");
 		System.exit(0);
 	}
-	
-	@Priority
-	public int getPriority() {
-		return 1;
-	}
-
 }

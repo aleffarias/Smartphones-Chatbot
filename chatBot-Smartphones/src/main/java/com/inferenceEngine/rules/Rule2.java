@@ -16,7 +16,9 @@ public class Rule2 {
 			boolean mp3 = facts.get("mp3");
 			boolean colorScreen = facts.get("colorScreen");
 			
-			return (smartphone && mp3) == false && colorScreen == true;
+			return (smartphone == false 
+						&& mp3 == false 
+							&& colorScreen == true);
 		} catch (Exception e) {
 			return false;
 		}

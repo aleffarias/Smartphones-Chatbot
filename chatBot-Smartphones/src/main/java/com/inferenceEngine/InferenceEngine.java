@@ -4,6 +4,7 @@ import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.api.RulesEngine;
 import org.jeasy.rules.api.RulesEngineParameters;
+import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.core.InferenceRulesEngine;
 
 import com.inferenceEngine.rules.Rule1;
@@ -20,17 +21,15 @@ public class InferenceEngine {
 	public void executeInferenceEngine() {
 		// Create a rules engine
 		RulesEngineParameters parameters = new RulesEngineParameters()
-			    .skipOnFirstAppliedRule(true);
+			    .skipOnFirstAppliedRule(false);
 
 		// Continuously applies rules on known facts until no more rules are applicable.
 		RulesEngine smartphonesEngine = new InferenceRulesEngine(parameters);
 		
 		Facts facts = new Facts();
-		facts.put("technology", "Menor");
-		facts.put("frontalCamera", false);
-		facts.put("flah3g", false);
-		facts.put("keybord", true);
-		facts.put("smartphone", true);
+		facts.put("dualSim", true);
+		facts.put("mp3", true);
+		facts.put("smartphone", false);
 		
 		smartphonesEngine.fire(registerRules(), facts);
 	}
