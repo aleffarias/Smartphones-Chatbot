@@ -27,10 +27,12 @@ public class InferenceEngine {
 		RulesEngine smartphonesEngine = new InferenceRulesEngine(parameters);
 		
 		Facts facts = new Facts();
-		facts.put("dualSim", true);
-		facts.put("mp3", true);
-		facts.put("smartphone", false);
-		
+		facts.put("smartphone", true);
+        facts.put("technology", "Menor");
+        facts.put("frontalCamera", false);
+        facts.put("flash3g", true);
+        facts.put("gyroscope", true);
+        
 		smartphonesEngine.fire(registerRules(), facts);
 	}
 	

@@ -14,14 +14,14 @@ public class Rule8 {
 		try {
 			String technology = facts.get("technology");
 			boolean frontalCamera = facts.get("frontalCamera");
-			boolean flah3g = facts.get("flah3g");
+			boolean flash3g = facts.get("flash3g");
 			boolean smartphone = facts.get("smartphone");
 			boolean gyroscope = facts.get("gyroscope");
 			
 			return (technology == "Menor" 
 					&& frontalCamera == false 
 						&& smartphone == true 
-							&& flah3g == true 
+							&& flash3g == true 
 								&& gyroscope == true);
 		} catch (Exception e) {
 			return false;
@@ -30,7 +30,7 @@ public class Rule8 {
 	
 	@Action
 	public void then() {
-		System.out.println("O Smartphone recomendado é:\nXioami Mi Mix");
+		System.out.println("O Smartphone recomendado é:\nHTC 10");
 		System.exit(0);
 	}
 }

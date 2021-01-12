@@ -14,15 +14,15 @@ public class Rule6 {
 		try {
 			String technology = facts.get("technology");
 			boolean frontalCamera = facts.get("frontalCamera");
-			boolean flah3g = facts.get("flah3g");
+			boolean flash3g = facts.get("flash3g");
 			boolean smartphone = facts.get("smartphone");
-			boolean keybord = facts.get("keybord");
-			
+			boolean keyboard = facts.get("keyboard");
+						
 			return (technology == "Menor" 
 					&& frontalCamera == false 
-						&& flah3g == false 
+						&& flash3g == false 
 							&& smartphone == true 
-								&& keybord == true);
+								&& keyboard == true);
 			
 		} catch (Exception e) {
 			return false;

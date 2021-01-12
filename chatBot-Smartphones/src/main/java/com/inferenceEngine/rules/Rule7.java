@@ -14,7 +14,7 @@ public class Rule7 {
 		try {
 			String technology = facts.get("technology");
 			boolean frontalCamera = facts.get("frontalCamera");
-			boolean flah3g = facts.get("flah3g");
+			boolean flash3g = facts.get("flash3g");
 			boolean smartphone = facts.get("smartphone");
 			boolean gyroscope = facts.get("gyroscope");
 			
@@ -22,7 +22,7 @@ public class Rule7 {
 					&& frontalCamera == false 
 						&& gyroscope == false 
 							&& smartphone == true 
-								&& flah3g == true);
+								&& flash3g == true);
 			
 		} catch (Exception e) {
 			return false;
