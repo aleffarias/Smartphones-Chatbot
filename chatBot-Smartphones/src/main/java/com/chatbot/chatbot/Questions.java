@@ -7,11 +7,15 @@ public class Questions {
 	
 	// Define facts
 		Facts facts = new Facts();
+		
+	public void executeQuestions() {
+		chatbotQuestions();
+	}
 	
 	public void chatbotQuestions() {
 		String textLine = "";
 		
-		System.out.println("Robot: É um smartphone?");
+		System.out.println("Robot: Você está procurando por um Smartphone?");
 		textLine = IOUtils.readInputTextLine();
 		checkBoolean(textLine, "smartphone");
 		

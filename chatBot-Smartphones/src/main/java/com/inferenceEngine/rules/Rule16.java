@@ -6,22 +6,21 @@ import org.jeasy.rules.annotation.Rule;
 import org.jeasy.rules.api.Facts;
 
 @Rule
-public class Rule5 {
+public class Rule16 {
 	
 	@Condition
 	public boolean when(Facts facts) {
 		try {
 			String technology = facts.get("technology");
-			boolean frontalCamera = facts.get("frontalCamera");
-			boolean flash3g = facts.get("flash3g");
 			boolean smartphone = facts.get("smartphone");
-			boolean keyboard = facts.get("keyboard");
-						
-			return (technology == "Menor"
-					&& frontalCamera == false 
-						&& flash3g == false 
-							&& keyboard == false 
-								&& smartphone == true);
+			boolean battery = facts.get("battery");
+			boolean processor = facts.get("processor");
+			
+			return (technology == "4g/5g" 
+					&& smartphone == true 
+						 && battery == false
+						 	&& processor == true); 
+			
 		} catch (Exception e) {
 			return false;
 		}
@@ -29,7 +28,7 @@ public class Rule5 {
 	
 	@Action
 	public void then() {
-		System.out.println("O Smartphone recomendado é:\nNokia N8");
+		System.out.println("O Smartphone recomendado é:\niPhone 12");
 		System.exit(0);
 	}
 }

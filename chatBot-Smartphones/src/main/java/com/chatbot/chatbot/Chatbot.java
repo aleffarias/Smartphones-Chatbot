@@ -44,6 +44,8 @@ public class Chatbot {
 		System.out.println("******************** BEM VINDO ********************");
 		System.out.println("***************************************************");
 		System.out.println("\nPara sair do chatbot, digite q ou sair\n\n");
+		System.out.println("Bot: Olá, para responder as perguntas digite Sim/Não ou s/n!");
+		System.out.println("     Sou um sistema de recomendação de Smartphones e irei te ajudar na sua escolha!");
 	}
 	
 }
