@@ -1,6 +1,10 @@
 # Smartphones-Chatbot
 Tarefa referente a disciplina de Inteligência Artificial
 
+## Alunos
+Antonio Alef Oliveira Farias
+
+Aristoteles Peixoto Barros
 
 ## Complementos e Dependências
 ### **Árvore de Decisão**
