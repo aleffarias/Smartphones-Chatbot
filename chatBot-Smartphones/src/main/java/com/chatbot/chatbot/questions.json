@@ -1,9 +1,20 @@
 {	
-    "A": "TesteA",
-    "B": "TesteB",
-    "C": "TesteC",
-    "D": "TesteD",
-    "E": "TesteE",
-    "F": "TesteF",
-    "G": "TesteG"
+    "A": "Você quer um smartphone?",
+    "B": "Qual seria o tipo de tecnologia do smartphone entre 5G, 4G ou Menor?",
+    "C": "O smartphone tem um processador com o desempenho acima da média?", 
+    "D": "Você gostaria de um celular em que a bateria dure mais tempo?", 
+    "E": "A tela deve possuir uma boa qualidade?",
+    "E1": "Tem muita memória de armazenamento?",
+    "E2": "Prefere um smartphone com a resolução de vídeo 4K?",
+    "E3": "A versão do Android está atualizada?", 
+    "F": "Você tem preferência a celulares com flash?", 
+    "G": "O smartphone possui leitor biométrico?", 
+    "H": "O smartphone possui câmera frontal?", 
+    "I": "Você gostaria de uma resolução em HD?",
+    "I1": "O celular com tecnologia menor, possui flash?",
+    "J": "O smartphone tem giroscópio?", 
+    "K": "O smartphone possui teclado físico?",
+    "L": "Você tem preferência por música, como um celular que toca MP3?",
+    "M": "O celular possui mais de um chip?",
+    "N": "Você possui a preferência por uma tela colorida?"
 }

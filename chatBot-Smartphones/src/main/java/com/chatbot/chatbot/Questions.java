@@ -12,48 +12,68 @@ import org.json.JSONTokener;
 public class Questions {
 	
 	private JSONObject questions;
+	private JSONObject smartphones;
 	
-	public Questions(JSONObject questions) {
+	private double smartphone = 0.8;
+	private double MP3 = 0.8;
+	private double dualSim = 0.9;
+	private double colorScreen = 0.8;
+	
+	public Questions(JSONObject questions, JSONObject smartphones) {
 		this.questions = questions;
+		this.smartphones = smartphones;
 	}
 	
 	// Define facts
-		Facts facts = new Facts();
+	Facts facts = new Facts();
 		
-	public void execute() throws JSONException {
+	public Facts execute() throws JSONException {
+		
 		System.out.println(this.questions.get("A"));
 		
 		if (checkBoolean("smartphone") == true) {
+			// A + a => B
 			System.out.println(this.questions.get("B"));
-			if (checkBoolean("smartphone") == true) {
-				System.out.println(this.questions.get("E"));
-			} else {
-				System.out.println(this.questions.get("C"));
-			}
+			
 		} else {
-			System.out.println(this.questions.get("G"));
+			// A + !a => L
+			System.out.println(this.questions.get("L"));
+			
+			if (checkBoolean("MP3") == true) {
+				
+				//L + l => M
+				System.out.println(this.questions.get("M"));
+				
+				if (checkBoolean("dualSim") == true) {
+					
+					// M + m => C5
+					System.out.println(this.smartphones.get("C5"));
+					System.out.printf("CNF: %.1f", (MP3 * dualSim ) * 100);
+				} else {
+					
+					// M + !m => C6
+					System.out.println(this.smartphones.get("C6"));
+				}
+			} else {
+				
+				//L + !l => N
+				System.out.println(this.questions.get("N"));
+				
+				if (checkBoolean("colorScreen") == true) {
+					
+					//N + n => C7
+					System.out.println(this.smartphones.get("C7"));
+					System.out.printf("CNF: %.1f", (dualSim * colorScreen) * 100);
+					
+				} else {
+					
+					//N + n => C7
+					System.out.println(this.smartphones.get("C8"));	
+				}
+			}
 		}
 		
-	}
-	
-	// A + a -> B
-	public void B() throws JSONException {
-		String textLine = "";
-		
-		System.out.println(this.questions.get("B"));
-		textLine = IOUtils.readInputTextLine();
-		checkBoolean("smartphone");
-		
-	}
-	
-	// A + !a -> G
-	public void G() throws JSONException {
-		String textLine = "";
-		
-		System.out.println(this.questions.get("G"));
-		textLine = IOUtils.readInputTextLine();
-		checkBoolean("smartphone");
-		
+		return facts;	
 	}
 	
 	// A + !a -> G

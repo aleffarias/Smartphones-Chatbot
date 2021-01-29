@@ -9,9 +9,11 @@ import org.jeasy.rules.api.RulesEngine;
 import org.jeasy.rules.api.RulesEngineParameters;
 import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.core.InferenceRulesEngine;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import com.chatbot.chatbot.Questions;
 import com.inferenceEngine.rules.Rule1;
 import com.inferenceEngine.rules.Rule10;
 import com.inferenceEngine.rules.Rule11;
@@ -35,35 +37,33 @@ import com.inferenceEngine.rules.Rule9;
 
 public class InferenceEngine {
 	
+	private Questions questions;
+	
 	public void executeInferenceEngine() {
 		// Create a rules engine
 		RulesEngineParameters parameters = new RulesEngineParameters()
 			    .skipOnFirstAppliedRule(false);
 
 		// Continuously applies rules on known facts until no more rules are applicable.
-		RulesEngine smartphonesEngine = new InferenceRulesEngine(parameters);
-		
-		Facts facts = new Facts();
-		
-		//Rule 02 test
-		facts.put("smartphone", false);
-		facts.put("mp3", false);
-		facts.put("colorScreen", true);
-		
+		// RulesEngine smartphonesEngine = new InferenceRulesEngine(parameters);
 		
 		try {
 			Reader readerQuestions = new FileReader("C:\\Users\\alef_\\git\\Smartphones-Chatbot\\chatBot-Smartphones\\src\\main\\java\\com\\chatbot\\chatbot\\questions.json");
+			Reader readerSmartphones = new FileReader("C:\\Users\\alef_\\git\\Smartphones-Chatbot\\chatBot-Smartphones\\src\\main\\java\\com\\chatbot\\chatbot\\smartphones.json");
 			
-			JSONTokener tokener = new JSONTokener(readerQuestions);
-			JSONObject jsonObject = new JSONObject(tokener);
-			//System.out.println(jsonObject.get("A"));	
-				
+			JSONTokener tokenerQuestions = new JSONTokener(readerQuestions);
+			JSONTokener tokenerSmartphones = new JSONTokener(readerSmartphones);
+			JSONObject jsonQuestions = new JSONObject(tokenerQuestions);
+			JSONObject jsonSmartphones = new JSONObject(tokenerSmartphones);
+			
+			questions = new Questions(jsonQuestions, jsonSmartphones);
+			questions.execute();
+			//smartphonesEngine.fire(registerRules(), questions.execute());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-
+		}		
         
-		smartphonesEngine.fire(registerRules(), facts);
 	}
 	
 	public Rules registerRules() {
