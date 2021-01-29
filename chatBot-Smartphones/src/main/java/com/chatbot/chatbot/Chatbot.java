@@ -1,7 +1,12 @@
 package com.chatbot.chatbot;
 
+import java.io.FileReader;
+import java.io.Reader;
+
 import org.alicebot.ab.MagicStrings;
 import org.alicebot.ab.utils.IOUtils;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import com.inferenceEngine.InferenceEngine;
 
@@ -17,6 +22,20 @@ public class Chatbot {
 			// Welcome Screen
 			welcomeScreen();
 			
+			try {
+				Reader readerQuestions = new FileReader("C:\\Users\\alef_\\git\\Smartphones-Chatbot\\chatBot-Smartphones\\src\\main\\java\\com\\chatbot\\chatbot\\questions.json");
+				
+				JSONTokener tokener = new JSONTokener(readerQuestions);
+				JSONObject jsonObject = new JSONObject(tokener);
+				//System.out.println(jsonObject.get("A"));	
+				Questions questions = new Questions(jsonObject);
+				questions.execute();
+					
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+			
+			
 			while(true) {
 				System.out.print("Humano : ");
 				textLine = IOUtils.readInputTextLine();
@@ -28,8 +47,8 @@ public class Chatbot {
 					System.exit(0);
 				} else {
 					String request = textLine;
-					inferenceEngine.executeInferenceEngine();
-					
+					//inferenceEngine.executeInferenceEngine();
+					 //questions.test();
 				}
 			}
 			
