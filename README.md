@@ -1,5 +1,5 @@
 # Smartphones-Chatbot
-Tarefa referente a disciplina de Inteligência Artificial
+Projeto referente a disciplina de Inteligência Artificial
 
 ## Alunos
 Antonio Alef Oliveira Farias
